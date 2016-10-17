@@ -8,22 +8,19 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class MainActivity extends AppCompatActivity {
-    @BindView(R.id.tabLayout)
     TabLayout tabLayout;
-    @BindView(R.id.viewPager)
     ViewPager viewPager;
-    @BindView(R.id.toolBar)
     Toolbar toolBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        toolBar = (Toolbar) findViewById(R.id.toolBar);
+        setSupportActionBar(toolBar);
 
         viewPager.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {
             @Override
@@ -46,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
                         return new ElementaryFragment();
                     case 5:
                         return new ElementaryFragment();
+                    case 6:
+                        return new ElementaryFragment();
+                    case 7:
+                        return new ElementaryFragment();
                     default:
                         return new ElementaryFragment();
                 }
@@ -55,19 +56,23 @@ public class MainActivity extends AppCompatActivity {
             public CharSequence getPageTitle(int position) {
                 switch (position) {
                     case 0:
-                        return getString(R.string.title_elementary);
+                        return "店铺到达";
                     case 1:
-                        return getString(R.string.title_elementary);
+                        return "门店信息";
                     case 2:
-                        return getString(R.string.title_elementary);
+                        return "生动化检查";
                     case 3:
-                        return getString(R.string.title_elementary);
+                        return "产品铺货";
                     case 4:
-                        return getString(R.string.title_elementary);
+                        return "订单管理";
                     case 5:
-                        return getString(R.string.title_elementary);
+                        return "促销执行";
+                    case 6:
+                        return "竞品管理";
+                    case 7:
+                        return "拜访小结";
                     default:
-                        return getString(R.string.title_elementary);
+                        return "店铺到达";
                 }
             }
         });
