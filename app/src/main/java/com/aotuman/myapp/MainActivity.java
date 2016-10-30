@@ -1,12 +1,18 @@
 package com.aotuman.myapp;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.WindowManager;
+
+import com.aotuman.myapp.constants.Constants;
 
 public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
@@ -22,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
         toolBar = (Toolbar) findViewById(R.id.toolBar);
         setSupportActionBar(toolBar);
 
+        DisplayMetrics dm = new DisplayMetrics();
+        ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getMetrics(dm);
+        Constants.screenWidth = dm.widthPixels;
+        Log.e("jjjj","screewidth:"+Constants.screenWidth);
+
         viewPager.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {
             @Override
             public int getCount() {
@@ -32,13 +43,13 @@ public class MainActivity extends AppCompatActivity {
             public Fragment getItem(int position) {
                 switch (position) {
                     case 0:
-                        return new ElementaryFragment();
+                        return new TotalViewFragment();
                     case 1:
-                        return new ElementaryFragment();
+                        return new LineViewFragment();
                     case 2:
-                        return new ElementaryFragment();
+                        return new TotalViewFragment();
                     case 3:
-                        return new ElementaryFragment();
+                        return new VerticalLineViewFragment();
                     case 4:
                         return new ElementaryFragment();
                     case 5:
