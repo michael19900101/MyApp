@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             public Fragment getItem(int position) {
                 switch (position) {
                     case 0:
-                        return new TotalViewFragment();
+                        return new DashLineFragment();
                     case 1:
                         return new LineViewFragment();
                     case 2:

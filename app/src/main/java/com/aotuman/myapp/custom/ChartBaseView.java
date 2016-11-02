@@ -21,6 +21,7 @@ public class ChartBaseView extends LinearLayout {
     private RelativeLayout mRlayout;
     private RelativeLayout mPloylayout;
     private RelativeLayout  mTlayout;
+    private RelativeLayout  mBaseLineLayout;
 
     public ChartBaseView(Context context) {
         this(context, null);
@@ -68,6 +69,11 @@ public class ChartBaseView extends LinearLayout {
         mPloylayout.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         mPloylayout.setGravity(Gravity.BOTTOM);
 
+        // 基准线的容器
+        mBaseLineLayout = new RelativeLayout(mContext);
+        mBaseLineLayout.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        mBaseLineLayout.setGravity(Gravity.BOTTOM);
+
         //文字的容器控件
         mTlayout = new RelativeLayout(mContext);
         mTlayout.setLayoutParams(new LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
@@ -78,6 +84,8 @@ public class ChartBaseView extends LinearLayout {
         mRlayout.addView(mPloylayout);
         //添加文字容器控件
         mRlayout.addView(mTlayout);
+        //添加基准线的容器
+        mRlayout.addView(mBaseLineLayout);
         //添加scrollview的内容控件
         horizontalScrollView.addView(mRlayout);
         //添加scrollview控件
@@ -90,6 +98,10 @@ public class ChartBaseView extends LinearLayout {
      */
     public void addLinearChartView(View v){
         mPloylayout.addView(v);
+    }
+
+    public void addBaseLineChartView(View v){
+        mBaseLineLayout.addView(v);
     }
 
     public RelativeLayout getTlayout() {

@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.aotuman.myapp.custom.ChartBaseView;
+import com.aotuman.myapp.custom.DashLineView;
 import com.aotuman.myapp.custom.DrawnTextView;
 import com.aotuman.myapp.custom.LineView;
 
@@ -33,10 +34,15 @@ public class TotalViewFragment extends Fragment {
         frameLayout.addView(chartBaseView);
 
         String[] value = {"50","80","100","40","60","80","20","0"};
-        float maxSale = 100;
+        float maxSale = 800;
         LineView lineView = new LineView(getActivity(), value, maxSale, "1");
         lineView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         chartBaseView.addLinearChartView(lineView);
+
+        String[] sales = {"800","800","800","800","800","800","800","800"};
+        float maxSales = 800f;
+        DashLineView dashLineView = new DashLineView(getActivity(),sales,maxSales,"1");
+        chartBaseView.addBaseLineChartView(dashLineView);
 
         String[]    xaixsTitle = {"一月","二月","三月","四月","五月","六月","七月","八月"};
         for (int i = 0, textlength = xaixsTitle.length; i < textlength; i++) {
