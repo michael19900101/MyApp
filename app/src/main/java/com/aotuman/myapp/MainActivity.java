@@ -51,13 +51,13 @@ public class MainActivity extends AppCompatActivity {
                     case 3:
                         return new VerticalLineViewFragment();
                     case 4:
-                        return new ElementaryFragment();
+                        return new SecondBezierViewFragment();
                     case 5:
-                        return new ElementaryFragment();
+                        return new ThirdBezierViewFragment();
                     case 6:
-                        return new ElementaryFragment();
+                        return new ThirdBezierViewFragment();
                     case 7:
-                        return new ElementaryFragment();
+                        return new SecondBezierViewFragment();
                     default:
                         return new ElementaryFragment();
                 }
