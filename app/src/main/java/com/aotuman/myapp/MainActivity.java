@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                     case 4:
                         return new SecondBezierViewFragment();
                     case 5:
-                        return new ThirdBezierViewFragment();
+                        return new WaterMaskFragment();
                     case 6:
                         return new ThirdBezierViewFragment();
                     case 7:
